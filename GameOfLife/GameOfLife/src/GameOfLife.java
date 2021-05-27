@@ -3,9 +3,9 @@ public class GameOfLife {
 
 	int rows;
 	int columns;
-	int [][] twoDArray;
+	boolean [][] twoDArray;
 	
-	public void GameOfLife(int rows, int columns) {
+	public GameOfLife(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
 		twoDArray = new boolean[rows][columns];
