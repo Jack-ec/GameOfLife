@@ -30,6 +30,13 @@ public class GameOfLife {
 	
 	public boolean setAlive(int row, int column, boolean life) {
 		twoDArray[row][column] = life;
+		return life;
 	}
-	
+	private int countNeighbors(int row, int column) {
+		
+	}
+	public boolean calculateNextGeneration(int row, int column) {
+			
+		}
+	}
 }
