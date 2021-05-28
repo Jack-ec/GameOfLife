@@ -58,6 +58,7 @@ public class GameOfLife {
 		if (isAlive(row, column-1)) {
 			neighbors += 1;
 		}
+		return neighbors;
 	}
 	public boolean calculateNextGeneration(int row, int column) {
 			
