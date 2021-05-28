@@ -3,12 +3,11 @@ public class GameOfLife {
 
 	int rows;
 	int columns;
-	boolean [][] twoDArray;
-	
-	public GameOfLife(int rows, int columns) {
+	boolean [][] curGen;
+ 	public GameOfLife(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
-		twoDArray = new boolean[rows][columns];
+		curGen = new boolean[rows][columns];
 		if (rows < 1 || columns < 1) {
 			throw new IllegalArgumentException("rows or columns can't be negative!");
 		}
@@ -26,7 +25,7 @@ public class GameOfLife {
 			isAlive = false;
 		}
 		else {
-			isAlive = twoDArray[row][column];
+			isAlive = curGen[row][column];
 		}
 		return isAlive;
 	}
@@ -63,24 +62,35 @@ public class GameOfLife {
 		}
 		return neighbors;
 	}
-	public boolean calculateNextGeneration() {
-		for 
-			if (getNeighbourCount(row, column) < 2) {
-				life = false;
-				setAlive(row, column, life);
+	public void calculateNextGeneration() {
+		boolean [][] newGen;
+		for (int row = 1; row < curGen.length; row ++) {
+			for (int col = 1; twoDArray[row].length; col ++) {
+				if (isAlive(row, col) == true) {
+					if (getNeighbourCount(row, col) < 2) {
+						newGen[row][col] = false;
+					}
+					continue;
+				if (getNeighbourCount(row, col) >= 4 && getNeighbourCount(row, col) <= 1) {
+					newGen[row][col] = false;
+				}
+				continue;
+				
+				}
+				if (getNeighbourCount(row, col) == 3 || getNeighbourCount(row, col) == 2) {
+					newGen[row][col] = true;
+				}
+				continue;
+				if (isAlive(row, col) == false) {
+					if (getNeighbourCount(row, col) == 3)
+						newGen[row][col] = true;
+				}
 			}
-			if (getNeighbourCount(row, column) >= 2 && getNeighbourCount(row, column) <= 3) {
-				setAlive(row, column, life);
-			}
-			if (getNeighbourCount(row, column) > 3) {
-				life = false;
-				setAlive(row, column, life);
-			}
-			if (getNeighbourCount(row, column) == 3) {
-				setAlive(row, column, life);
-			}
-			return life;
+		}
+		curGen = newGen;
 	}
+
+
 	 public String toString() {
 	        String res = "";
 	        for (int r = 0; r < twoDArray.length; r++) {
