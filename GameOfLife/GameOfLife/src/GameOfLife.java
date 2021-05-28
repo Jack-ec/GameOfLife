@@ -63,8 +63,30 @@ public class GameOfLife {
 		}
 		return neighbors;
 	}
-	public boolean calculateNextGeneration(int row, int column) {
-			
-		}
+	public boolean calculateNextGeneration(int row, int column, boolean life) {
+			if (getNeighbourCount(row, column) < 2) {
+				life = false;
+				setAlive(row, column, life);
+			}
+			if (getNeighbourCount(row, column) >= 2 && getNeighbourCount(row, column) <= 3) {
+				setAlive(row, column, life);
+			}
+			if (getNeighbourCount(row, column) > 3) {
+				life = false;
+				setAlive(row, column, life);
+			}
+			if (getNeighbourCount(row, column) == 3) {
+				setAlive(row, column, life);
+			}
+			return life;
 	}
+	 public String toString() {
+	        String res = "";
+	        for (int r = 0; r < twoDArray.length; r++) {
+	            for (int c = 0; c < twoDArray[r].length; c++) 
+	                res = res + twoDArray[r][c];
 
+	        }
+	        return res;
+	 }
+}
