@@ -33,7 +33,31 @@ public class GameOfLife {
 		return life;
 	}
 	private int countNeighbors(int row, int column) {
-		
+		int neighbors = 0;
+		if (isAlive(row+1, column+1)) {
+			neighbors += 1;
+		}
+		if (isAlive(row+1, column-1)) {
+			neighbors += 1;
+		}
+		if (isAlive(row-1, column+1)) {
+			neighbors += 1;
+		}
+		if (isAlive(row-1, column-1)) {
+			neighbors += 1;
+		}
+		if (isAlive(row, column+1)) {
+			neighbors += 1;
+		}
+		if (isAlive(row, column-1)) {
+			neighbors += 1;
+		}
+		if (isAlive(row, column+1)) {
+			neighbors += 1;
+		}
+		if (isAlive(row, column-1)) {
+			neighbors += 1;
+		}
 	}
 	public boolean calculateNextGeneration(int row, int column) {
 			
