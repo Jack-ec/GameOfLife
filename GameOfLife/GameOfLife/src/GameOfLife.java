@@ -9,6 +9,9 @@ public class GameOfLife {
 		this.rows = rows;
 		this.columns = columns;
 		twoDArray = new boolean[rows][columns];
+		if (rows < 0 || columns < 0) {
+			throw new IllegalArgumentException("rows or columns can't be negative!");
+		}
 	}
 	public int getRows() {
 		return rows;
@@ -32,7 +35,7 @@ public class GameOfLife {
 		twoDArray[row][column] = life;
 		return life;
 	}
-	private int countNeighbors(int row, int column) {
+	public int getNeighbourCount(int row, int column) {
 		int neighbors = 0;
 		if (isAlive(row+1, column+1)) {
 			neighbors += 1;
