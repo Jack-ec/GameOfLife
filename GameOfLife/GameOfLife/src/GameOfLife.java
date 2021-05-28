@@ -9,7 +9,7 @@ public class GameOfLife {
 		this.rows = rows;
 		this.columns = columns;
 		twoDArray = new boolean[rows][columns];
-		if (rows < 0 || columns < 0) {
+		if (rows < 1 || columns < 1) {
 			throw new IllegalArgumentException("rows or columns can't be negative!");
 		}
 	}
